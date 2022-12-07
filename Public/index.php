@@ -29,6 +29,12 @@
 </head>
 <!--------------------------------------------------------------------------------------------------------------->
 <body>
+  <?php
+    require_once '../App/bootstrap.php';
+    
+  // initiate core library
+    $init = new core;
+  ?>
 
   <div class="hero_area">
     <!-- header section strats -->
