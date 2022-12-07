@@ -13,7 +13,10 @@
     }
 
     public function about(){
-        $this->view('pages/about');
+        $data = [
+            'title' => 'Dhayby | About us'
+        ];
+        $this->view('pages/about', $data);
     }
 
     }

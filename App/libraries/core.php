@@ -20,7 +20,7 @@
             $this->currentController = ucwords($url[0]);
             // Unset the zero index
             unset($url[0]);
-        }
+        } 
 
         // Require the controller
         require_once '../App/Controllers/' . $this->currentController . '.php';
