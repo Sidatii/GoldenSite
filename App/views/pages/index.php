@@ -1,3 +1,3 @@
-<?php require APPROOT . '/App/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; 
 // Here goes the echo of the page title -> Reminder : ------
-<?php require APPROOT . '/App/views/inc/footer.php'; ?>
+require APPROOT . '/views/inc/footer.php'; ?>
