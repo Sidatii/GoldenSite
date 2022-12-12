@@ -35,12 +35,11 @@
 <body>
   <?php
   require_once '../App/bootstrap.php';
-
   // initiate core library
   $init = new core;
   ?>
 
  
 </body>
-
+ <!-- <p style="color: black;">jjjjjjjjjjjjjjjjjjjjjjjjj</p> -->
 </html>

@@ -1,7 +1,10 @@
+<div class="hero_area">
+    <!-- header section strats -->
+<header class="header_section">
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="<?php echo SITENAME;?>">
-            <img src="images/Dhayby_logo.svg" height="" alt="Logo">
+            <img src="<?php echo URLROOT; ?>Public/images/Dhayby_logo.svg" height="" alt="Logo">
             <span>
                 Dhayby
             </span>
@@ -18,13 +21,16 @@
                         <a class="nav-link" href="<?php echo URLROOT;?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URLROOT;?>App/views/pages/about"> About</a>
+                        <a class="nav-link" href="<?php echo URLROOT;?>/pages/about.php"> About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URLROOT;?>App/views/pages/gallery"> Gallery</a>
+                        <a class="nav-link" href="<?php echo URLROOT;?>/pages/gallery"> Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URLROOT;?>App/views/pages/contact"> Contact us</a>
+                        <a class="nav-link" href="<?php echo URLROOT;?>/pages/contact"> Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT;?>/admins/login"> Log in</a>
                     </li>
                 </ul>
 
