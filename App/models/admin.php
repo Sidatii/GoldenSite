@@ -8,8 +8,10 @@ class Admin{
     }
 
     public function findAdminByEmail($email){
-        $this->db->query('SELECT * from admins where email = :email');
-        $this->db->bind(':email', $email);
+
+        $this->db->query('SELECT * FROM admins WHERE Email = :Email');
+
+        $this->db->bind(':Email', $email);
 
         $row = $this->db->single();
 

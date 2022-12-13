@@ -25,10 +25,12 @@ class Admins extends Controller
             if (empty($data['email'])) {
                 $data['email_err'] = 'Please enter email';
             } else{
+
                 // Check email
                 if($this->adminModel->findAdminByEmail($data['email'])){
                     $data['email_err'] = 'Email is already taken';
                 }
+
             }
 
             // Validate Password
@@ -42,13 +44,14 @@ class Admins extends Controller
             // Make sure errors are empty
             if (empty($data['email_err']) && empty($data['password_err'])) {
                 // Validated
-                die('SUCCESS');
+
+
             } else {
                 // Load view with errors
                 $this->view('admins/login', $data);
             }
 
-
+            
         } else {
             // Init data
             $data = [
