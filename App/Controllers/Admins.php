@@ -1,8 +1,9 @@
 <?php
 class Admins extends Controller
 {
-     private $adminModel;
-    public function __construct(){
+    private $adminModel;
+    public function __construct()
+    {
         $this->adminModel = $this->model('Admin');
     }
     public function login()
@@ -24,26 +25,27 @@ class Admins extends Controller
             // Validate Email
             if (empty($data['email'])) {
                 $data['email_err'] = 'Please enter email';
-            } else{
-
-                // Check email
-                if($this->adminModel->findAdminByEmail($data['email'])){
-                    $data['email_err'] = 'Email is already taken';
-                }
-
             }
 
             // Validate Password
             if (empty($data['password'])) {
                 $data['password_err'] = 'Please enter password';
             }
-            if (strlen($data['password']) < 6 ) {
-                $data['password_err'] = 'Password must be at least 6 characters';
-            }
+
 
             // Make sure errors are empty
             if (empty($data['email_err']) && empty($data['password_err'])) {
                 // Validated
+                //check and set logged in user
+                $loggedInAdmin = $this->adminModel->login($data['email'], $data['password']);
+
+                if ($loggedInAdmin) {
+                    $this->createAdminSession($loggedInAdmin);
+                } else {
+                    $data['password_err'] = 'Incorrect password';
+
+                    $this->view('admins/login', $data);
+                }
 
 
             } else {
@@ -51,7 +53,7 @@ class Admins extends Controller
                 $this->view('admins/login', $data);
             }
 
-            
+
         } else {
             // Init data
             $data = [
@@ -64,6 +66,23 @@ class Admins extends Controller
             // Load view
             $this->view('admins/login', $data);
         }
+    }
+
+    public function createAdminSession($admin)
+    {
+        $_SESSION['user_id'] = $admin->AdminID;
+        $_SESSION['admin_email'] = $admin->Email;
+
+        $this->view('Pages/index');
+
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['admin_email']);
+        session_destroy();
+        $this->view('Pages/index');
     }
 }
     ?>

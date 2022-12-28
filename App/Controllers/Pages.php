@@ -23,6 +23,22 @@ class Pages extends Controller
         $this->view('pages/about', $data);
     }
 
+    public function contact()
+    {
+        $data = [
+            'title' => 'Dhayby | Contact us'
+        ];
+        $this->view('pages/contact', $data);
+    }
+
+    public function gallery()
+    {
+        $data = [
+            'title' => 'Dhayby | gallery'
+        ];
+        $this->view('pages/gallery', $data);
+    }
+
 }
 
 

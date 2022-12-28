@@ -30,7 +30,11 @@
                         <a class="nav-link" href="<?php echo URLROOT;?>/pages/contact"> Contact us</a>
                     </li>
                     <li class="nav-item">
+                        <?php if(isset($_SESSION['user_id'])) :?>
+                            <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT;?>/admins/logout"> Log out</a>
+                        <?php else :?>   
                         <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT;?>/admins/login"> Log in</a>
+                        <?php endif;?>
                     </li>
                 </ul>
 

@@ -7,6 +7,20 @@ class Admin{
         $this->db = new Database;
     }
 
+
+    public function login($email, $password){
+        $this->db->query('SELECT * FROM admins WHERE email = :email');
+        $this->db->bind(':email', $email);
+
+        $row = $this->db->single();
+
+        $entered_pass = $row->Password;
+        if($password == $entered_pass){
+            return $row;
+        } else{
+            return false;
+        }
+    }
     public function findAdminByEmail($email){
 
         $this->db->query('SELECT * FROM admins WHERE Email = :Email');
