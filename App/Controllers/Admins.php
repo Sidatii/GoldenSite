@@ -84,5 +84,19 @@ class Admins extends Controller
         session_destroy();
         $this->view('Pages/index');
     }
+
+    public function showProducts(){
+        $products = $this->adminModel->showProducts();
+        $data = [
+            'products' => $products
+        ];
+
+        $this->view('admins/Product', $data);
+
+    }
+
+    public function addProduct(){
+
+    }
 }
     ?>

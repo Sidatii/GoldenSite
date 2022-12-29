@@ -1,4 +1,4 @@
-<?php require APPROOT . '/App/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/inc/header.php'; ?>
 
 // Here goes the echo of the page title -> Reminder : ------
 <section class="about_section layout_padding2-top layout_padding-bottom">
@@ -36,4 +36,4 @@
     </div>
   </section>
   
-<?php require APPROOT . '/App/views/inc/footer.php'; ?>
+<?php require APPROOT . '/views/inc/footer.php'; ?>

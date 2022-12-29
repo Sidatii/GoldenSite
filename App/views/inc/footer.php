@@ -6,7 +6,7 @@
         <div class="col-md-3">
           <div class="info_logo">
             <a href="">
-              <img src="images/logo.png" alt="">
+              <img src="<?php echo URLROOT; ?>Public/images/logo.png" alt="">
               <span>
                 Logo
               </span>
@@ -16,7 +16,7 @@
         <div class="col-md-3">
           <div class="info_contact">
             <a href="">
-              <img src="images/location.png" alt="">
+              <img src="<?php echo URLROOT; ?>Public/images/location.png" alt="">
               <span>
                 Address
               </span>
@@ -26,7 +26,7 @@
         <div class="col-md-3">
           <div class="info_contact">
             <a href="">
-              <img src="images/phone.png" alt="">
+              <img src="<?php echo URLROOT; ?>Public/images/phone.png" alt="">
               <span>
                 +01 1234567890
               </span>
@@ -36,7 +36,7 @@
         <div class="col-md-3">
           <div class="info_contact">
             <a href="">
-              <img src="images/mail.png" alt="">
+              <img src="<?php echo URLROOT; ?>Public/images/mail.png" alt="">
               <span>
                 demo@gmail.com
               </span>
@@ -70,16 +70,16 @@
         </div>
         <div class="social_box">
           <a href="">
-            <img src="images/fb.png" alt="">
+            <img src="<?php echo URLROOT; ?>Public/images/fb.png" alt="">
           </a>
           <a href="">
-            <img src="images/twitter.png" alt="">
+            <img src="<?php echo URLROOT; ?>Public/images/twitter.png" alt="">
           </a>
           <a href="">
-            <img src="images/linkedin.png" alt="">
+            <img src="<?php echo URLROOT; ?>Public/images/linkedin.png" alt="">
           </a>
           <a href="">
-            <img src="images/insta.png" alt="">
+            <img src="<?php echo URLROOT; ?>Public/images/insta.png" alt="">
           </a>
         </div>
       </div>

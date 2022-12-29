@@ -36,5 +36,15 @@ class Admin{
             return false;
         }
     }
+
+    public function showProducts(){
+        $this->db->query('SELECT * 
+                        FROM Products
+                        ');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
 }
 ?>
