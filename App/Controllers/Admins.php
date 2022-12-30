@@ -105,25 +105,21 @@ class Admins extends Controller
     }
 
     public function insertProduct(){
-        if($_SERVER['REQUEST_METHOD']=='POST')
-        {
-            $n=$_POST['productName'];
-            $disc=$_POST['productDiscription'];
-            $img=$_FILES["productImage"]["name"];
-            $tmp=$_FILES["productImage"]["tmp_name"];
-            $folder = "./images/" . $img;
-            $price=$_POST['productPrice'];
-            $q=$_POST['productQuantity'];
-            $idc=$_POST['IDC'];
-            move_uploaded_file($tmp, $folder);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $insert = $this->adminModel->addProduct($n, $disc, $q, $price, $idc, $img);
-            if($insert==true){
-                
-                header("location:".URLROOT.'/admins/products'."");
+
+
+            $data = $_POST;
+            $data['img'] = $_FILES["productImage"]["name"];
+
+            if ($this->adminModel->addProduct($data)) {
+                move_uploaded_file($_FILES["productImage"]["tmp_name"], "./images/" . $img);
+                header("location:" . URLROOT . '/admins/products/1');
                 exit();
             }
         }
+                
+                
     }
 
     public function products($idc)
