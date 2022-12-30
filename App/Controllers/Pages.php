@@ -39,6 +39,7 @@ class Pages extends Controller
         $this->view('pages/gallery', $data);
     }
 
+
 }
 
 

@@ -955,7 +955,6 @@ a:focus {
  border-radius: 50%;
  border-color: #fb930a;
  border-style: dashed;
- border-: 10px;
  width: 140px;
 }
 
@@ -1187,10 +1186,11 @@ a:focus {
 }
 
 .product-container {
-  padding: 1 10vw;
+
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .product-container::-webkit-scrollbar {
@@ -1200,15 +1200,18 @@ a:focus {
 .product-card {
   flex: 0 0 auto;
   width: 250px;
-  height: 450px;
-  margin-right: 40px;
+  height: 400px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .product-image {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 250px;
   overflow: hidden;
+  border-radius: 7px;
 }
 
 .product-thumb {
@@ -1268,6 +1271,8 @@ a:focus {
 .product-short-description {
   width: 100%;
   height: 20px;
+  display: flex;
+  word-wrap: normal;
   line-height: 20px;
   overflow: hidden;
   opacity: 0.5;

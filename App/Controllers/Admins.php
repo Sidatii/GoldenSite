@@ -4,6 +4,7 @@ class Admins extends Controller
     private $adminModel;
     public function __construct()
     {
+        
         $this->adminModel = $this->model('Admin');
     }
     public function login()
@@ -73,30 +74,70 @@ class Admins extends Controller
         $_SESSION['user_id'] = $admin->AdminID;
         $_SESSION['admin_email'] = $admin->Email;
 
-        $this->view('Pages/index');
+        $this->view('Pages/gallery');
 
     }
 
     public function logout()
     {
+        $data = [
+            'email' => '',
+            'password' => '',
+            'email_err' => '',
+            'password_err' => '',
+        ];
+
         unset($_SESSION['user_id']);
         unset($_SESSION['admin_email']);
         session_destroy();
-        $this->view('Pages/index');
+        $this->view('admins/login', $data);
     }
 
-    public function showProducts(){
-        $products = $this->adminModel->showProducts();
+    public function addProduct(){
+        $products = $this->adminModel->addProducts();
         $data = [
             'products' => $products
         ];
 
-        $this->view('admins/Product', $data);
+        $this->view('admins/addProduct', $data);
 
     }
 
-    public function addProduct(){
+    public function products($idc)
+    {
+        $categories = $this->adminModel->getCategories();
 
+        if($idc == '1'){
+            $products = $this->adminModel->showProducts();
+        } else{
+            $products = $this->adminModel->filter($idc);
+        }
+        
+        $data = [
+            'products' => $products,
+            'category' => $categories,
+            'idc' => $idc
+        ];
+
+        $this->view('Admins/products', $data);
+
+    }
+
+    public function categories()
+    {
+        $data = [
+            'title' => 'Dhayby | categories'
+        ];
+        $this->view('admins/categories', $data);
+    }
+
+    public function filter($idc){
+        $categories = $this->adminModel->filter($idc);
+        $data = [
+            'categories' => $categories
+        ];
+
+        $this->view('admins/products', $data);
     }
 }
     ?>

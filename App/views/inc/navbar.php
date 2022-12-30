@@ -16,6 +16,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                         <ul class="navbar-nav  ">
+                            <?php if (isset($_SESSION['user_id'])) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/gallery"> Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo URLROOT; ?>Admins/products/1">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo URLROOT; ?>/Admins/categories">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT; ?>Admins/logout"> Log out</a>
+                            </li>
+                            <?php else : ?>
                             <li class="nav-item active">
                                 <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
                             </li>
@@ -28,16 +42,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo URLROOT; ?>/pages/contact"> Contact us</a>
                             </li>
-                            <?php if (isset($_SESSION['user_id'])) : ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/admin">Admin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT; ?>/admins/logout"> Log out</a>
-                            <?php else : ?>
                                 <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT; ?>/admins/login"> Log in</a>
-                            <?php endif; ?>
                             </li>
+                            <?php endif; ?>
                         </ul>
 
                     </div>

@@ -8,12 +8,12 @@
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo URLROOT; ?>/Public/css/bootstrap.css" />
 
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <!-- responsive style -->
-    <link href="<?php echo URLROOT; ?>css/responsive.css" rel="stylesheet" />
+    <link href="<?php echo URLROOT . '/Public/css/responsive.css'; ?>" rel="stylesheet" />
 </head>
 <body>
 <?php require APPROOT . '/views/inc/navbar.php' ?>
