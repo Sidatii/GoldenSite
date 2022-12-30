@@ -1,6 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <center class="m-4 mx-auto">
+<?php flash('product_deleted');?>
 <a class="btn btn-success m-4" href="<?php echo URLROOT . 'admins/addProduct'; ?>">Add product</a>
 <div class="container">
 <?php  foreach($data['category'] as $item) : ?>
@@ -20,7 +21,10 @@
                 <p class="product-short-description"><?php echo $item->Discription; ?></p>
                 <span class="price"><?php echo $item->Price; ?> Dh</span>
             </div>
+            <div class="container">
             <a href="<?php echo URLROOT . 'admins/editProduct/' . $item->ID; ?>" class="btn btn-warning">Edit</a>
+            <a href="<?php echo URLROOT . 'admins/deleteProduct/' . $item->ID; ?>" class="btn btn-danger">Delete</a>
+            </div>
         </div>
         <?php endforeach; ?>
     </div>

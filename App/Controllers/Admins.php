@@ -113,7 +113,7 @@ class Admins extends Controller
             $data['img'] = $_FILES["productImage"]["name"];
 
             if ($this->adminModel->addProduct($data)) {
-                move_uploaded_file($_FILES["productImage"]["tmp_name"], "./images/" . $img);
+                move_uploaded_file($_FILES["productImage"]["tmp_name"], "./images/" . $data['img']);
                 header("location:" . URLROOT . '/admins/products/1');
                 exit();
             }
@@ -141,15 +141,6 @@ class Admins extends Controller
         $this->view('Admins/products', $data);
 
     }
-
-    public function categories()
-    {
-        $data = [
-            'title' => 'Dhayby | categories'
-        ];
-        $this->view('admins/categories', $data);
-    }
-
     public function filter($idc){
         $categories = $this->adminModel->filter($idc);
         $data = [
@@ -158,5 +149,25 @@ class Admins extends Controller
 
         $this->view('admins/products', $data);
     }
+
+    public function deleteProduct($id){
+        if($this->adminModel->delete($id)){
+            $this->products(1);
+        }
+
+    }
+
+    public function updateProduct(){
+        
+    }
+
+    // public function categories()
+    // {
+    //     $data = [
+    //         'title' => 'Dhayby | categories'
+    //     ];
+    //     $this->view('admins/categories', $data);
+    // }
+
 }
-    ?>
+?>

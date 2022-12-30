@@ -66,17 +66,27 @@ class Admin{
 
     public function addProduct(array $product){
         extract($product);
-        $this->db->query('INSERT INTO `produits` (`ProductName`, `Discription`, `Quantity`, `Price`, `IDC`, `img`) VALUES (:name, :disc, :q, :price, :idc, :img)');
+        $this->db->query('INSERT INTO `produits` (`ProductName`, `Discription`, `Quantity`, `Price`, `IDC`, `img`) VALUES (:n, :disc, :q, :price, :idc, :img)');
 
-        $this->db->bind(':name', $productName);
+        $this->db->bind(':n', $productName);
         $this->db->bind(':disc', $productDiscription);
         $this->db->bind(':q', $productQuantity);
         $this->db->bind(':price', $productPrice);
         $this->db->bind(':idc', $IDC);
- 
         $this->db->bind(':img', $img);
 
-        return $this->db->execute();
+        $this->db->execute();
+        return true;
+    }
+
+    public function delete($id){
+        $this->db->query("DELETE FROM produits WHERE `produits`.`ID` = $id");
+
+        if($this->db->execute()){
+            return true;
+        }else{
+            flash('product_deleted', 'Your product has been deleted');
+        }
     }
 
 }

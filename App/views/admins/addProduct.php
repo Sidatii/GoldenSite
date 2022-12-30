@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <form class="container" style="max-width: 500px; background-color: gainsboro; padding: 15px; border-radius: 10px;" method="POST" action="<?php echo URLROOT . 'admins/insertProduct';?>"  enctype="multipart/form-data">
-<a class="btn btn-light" href="">Back</a>
+<a class="btn btn-light" href="<?php echo URLROOT . 'admins/products/1'; ?>">Back</a>
 <center><H3>Add product</H3></center>
 
   <div class="form-group">
