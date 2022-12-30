@@ -94,13 +94,36 @@ class Admins extends Controller
     }
 
     public function addProduct(){
-        $products = $this->adminModel->addProducts();
+
+        $categories = $this->adminModel->getCategories();
         $data = [
-            'products' => $products
+            'category' => $categories
         ];
 
         $this->view('admins/addProduct', $data);
 
+    }
+
+    public function insertProduct(){
+        if($_SERVER['REQUEST_METHOD']=='POST')
+        {
+            $n=$_POST['productName'];
+            $disc=$_POST['productDiscription'];
+            $img=$_FILES["productImage"]["name"];
+            $tmp=$_FILES["productImage"]["tmp_name"];
+            $folder = "./images/" . $img;
+            $price=$_POST['productPrice'];
+            $q=$_POST['productQuantity'];
+            $idc=$_POST['IDC'];
+            move_uploaded_file($tmp, $folder);
+
+        $insert = $this->adminModel->addProduct($n, $disc, $q, $price, $idc, $img);
+            if($insert==true){
+                
+                header("location:".URLROOT.'/admins/products'."");
+                exit();
+            }
+        }
     }
 
     public function products($idc)

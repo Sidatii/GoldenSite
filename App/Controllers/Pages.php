@@ -2,9 +2,10 @@
 
 class Pages extends Controller
 {
+    private $adminModel;
     public function __construct()
     {
-        
+        $this->adminModel = $this->model('Admin');
     }
 
     public function index()
@@ -31,10 +32,20 @@ class Pages extends Controller
         $this->view('pages/contact', $data);
     }
 
-    public function gallery()
+    public function gallery($idc)
     {
+        $categories = $this->adminModel->getCategories();
+
+        if($idc == '1'){
+            $products = $this->adminModel->showProducts();
+        } else{
+            $products = $this->adminModel->filter($idc);
+        }
+        
         $data = [
-            'title' => 'Dhayby | gallery'
+            'products' => $products,
+            'category' => $categories,
+            'idc' => $idc
         ];
         $this->view('pages/gallery', $data);
     }

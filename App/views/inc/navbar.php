@@ -18,7 +18,7 @@
                         <ul class="navbar-nav  ">
                             <?php if (isset($_SESSION['user_id'])) : ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/gallery"> Gallery</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/gallery/1"> Gallery</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo URLROOT; ?>Admins/products/1">Products</a>

@@ -63,5 +63,11 @@ class Admin{
         $results = $this->db->resultSet();
         return $results;
     }
+
+    public function addProduct($n, $disc, $q, $price, $idc, $img){
+        
+        $this->db->query('INSERT INTO `produits` (`ProductName`, `Discription`, `Quantity`, `Price`, `IDC`, `img`) VALUES ($n, $disc, $q, $price, $idc, $img)');
+    }
+
 }
 ?>
