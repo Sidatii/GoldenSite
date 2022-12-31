@@ -28,7 +28,7 @@
   <label>Product Category</label>
     <select class="form-control" name="IDC" id="">
         <?php foreach($data['categories'] as $category) : ?>
-            <option value="<?php echo $category->IDC;?>">
+            <option value="<?php echo $category->IDC; ?>" <?php if ($data['prdinfo'][0]->IDC == $category->IDC): ?>selected<?php endif; ?>>
                 <?php echo $category->CatName;?>
             </option>
         <?php endforeach;?>
