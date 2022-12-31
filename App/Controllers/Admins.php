@@ -107,8 +107,6 @@ class Admins extends Controller
     public function insertProduct(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
-
             $data = $_POST;
             $data['img'] = $_FILES["productImage"]["name"];
 
@@ -135,7 +133,6 @@ class Admins extends Controller
         $data = [
             'products' => $products,
             'category' => $categories,
-            'idc' => $idc
         ];
 
         $this->view('Admins/products', $data);
@@ -157,8 +154,18 @@ class Admins extends Controller
 
     }
 
-    public function updateProduct(){
+    public function updateProduct($id){
+        $categories = $this->adminModel->getCategories();
+        $productInfos = $this->adminModel->showProductInfos($id);
+
         
+        $data = [
+            'categories' => $categories,
+            'prdinfo' => $productInfos
+        ];
+        
+        $this->view('admins/updateProduct', $data);
+
     }
 
     // public function categories()

@@ -22,7 +22,7 @@
                 <span class="price"><?php echo $item->Price; ?> Dh</span>
             </div>
             <div class="container">
-            <a href="<?php echo URLROOT . 'admins/editProduct/' . $item->ID; ?>" class="btn btn-warning">Edit</a>
+            <a href="<?php echo URLROOT . 'admins/updateProduct/' . $item->ID; ?>" class="btn btn-warning">Edit</a>
             <a href="<?php echo URLROOT . 'admins/deleteProduct/' . $item->ID; ?>" class="btn btn-danger">Delete</a>
             </div>
         </div>

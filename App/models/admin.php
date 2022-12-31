@@ -58,7 +58,6 @@ class Admin{
     }
 
     public function getCategories() {
-        $que = "SELECT * FROM category";
         $this->db->query('SELECT * FROM category');
         $results = $this->db->resultSet();
         return $results;
@@ -87,6 +86,30 @@ class Admin{
         }else{
             flash('product_deleted', 'Your product has been deleted');
         }
+    }
+
+    public function showProductInfos($id){
+        $this->db->query('SELECT * FROM `produits` WHERE ID=:id');
+        $this->db->bind(':id', $id);
+        $result = $this->db->resultSet();
+        return $result;
+    }
+
+    public function update($name, $disc, $qty, $price, $idc, $img, $id){
+        $this->db->query('UPDATE `produits` SET `ProductName`= :name ,`Discription`= :disc,`Quantity`=:qty,`Price`=:price,`IDC`=:idc,`img`=:img WHERE `ID`=:id');
+
+        $this->db->bind(':name', $name);
+        $this->db->bind(':disc', $disc);
+        $this->db->bind(':qty', $qty);
+        $this->db->bind(':price', $price);
+        $this->db->bind(':idc', $idc);
+        $this->db->bind(':img', $img);
+        $this->db->bind(':id', $id);
+
+        $this->db->execute();
+        return true;
+
+
     }
 
 }
