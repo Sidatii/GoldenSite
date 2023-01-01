@@ -8,7 +8,7 @@ define('DB_NAME', 'goldensite');
 // App Root
 define('APPROOT', dirname(dirname(__FILE__)));
 // URL Root
-define('URLROOT', 'https://sidatii.github.io/');
+define('URLROOT', 'http://localhost/GoldenSite/');
 // Site Name
 define('SITENAME', 'GoldenSite');
 ?>
