@@ -18,13 +18,13 @@
                         <ul class="navbar-nav  ">
                             <?php if (isset($_SESSION['user_id'])) : ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/gallery/1"> Gallery</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>pages/gallery/1"> Gallery</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo URLROOT; ?>Admins/products/1">Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/Admins/categories">Categories</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>Admins/categories">Categories</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT; ?>Admins/logout"> Log out</a>
@@ -34,13 +34,13 @@
                                 <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about"> About</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>pages/about"> About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/gallery"> Gallery</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>pages/gallery/1"> Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo URLROOT; ?>/pages/contact"> Contact us</a>
+                                <a class="nav-link" href="<?php echo URLROOT; ?>pages/contact"> Contact us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link btn btn-light" style="color: black" href="<?php echo URLROOT; ?>/admins/login"> Log in</a>

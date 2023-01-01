@@ -1,9 +1,8 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-// Here goes the echo of the page title -> Reminder : ------
 <section class="about_section layout_padding2-top layout_padding-bottom">
     <div class="design-box">
-      <img src="images/design-2.png" alt="">
+      <img src="<?php echo URLROOT;?>Public/images/design-2.png" alt="">
     </div>
     <div class="container">
       <div class="row">
@@ -29,7 +28,7 @@
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/about-img.png" alt="">
           </div>
         </div>
       </div>

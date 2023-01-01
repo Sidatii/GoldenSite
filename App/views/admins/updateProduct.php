@@ -1,9 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<form class="container" style="max-width: 500px; background-color: gainsboro; padding: 15px; border-radius: 10px;" method="POST" action="<?php echo URLROOT . 'admins/insertProduct';?>"  enctype="multipart/form-data">
+<form class="container" style="max-width: 500px; background-color: gainsboro; padding: 15px; border-radius: 10px;" method="POST" action="<?php echo URLROOT . 'admins/updateProduct/' . $data['id'];?>"  enctype="multipart/form-data">
 <a class="btn btn-light" href="<?php echo URLROOT . 'admins/products/1'; ?>">Back</a>
 <center><H3>Add product</H3></center>
-
+  <p><?php echo URLROOT . 'admins/updateProduct/' . $data['id'];?></p>
   <div class="form-group">
     <label>Product name</label>
     <input class="form-control" type="text" name="productName" value="<?php echo $data['prdinfo'][0]->ProductName;?>" required>
@@ -14,7 +14,7 @@
   </div>
   <div class="form-group">
     <label>Product image</label>
-    <input class="form-control p-0" type="file" name="productImage" accept="image/*" required>
+    <input class="form-control p-0" type="file" name="productImage" value="<?php echo $data['prdinfo'][0]->img;?>" accept="image/*">
   </div>
   <div class="form-group ">
     <label>Product Quantity</label>

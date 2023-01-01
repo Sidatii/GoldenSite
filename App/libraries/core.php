@@ -14,13 +14,17 @@
 
         $url = $this->getUrl();
 
+        if(empty($url)){
+            $url[0] = 'index';
+        }
+
         // Look in the controllers for first value
         if (file_exists('../App/Controllers/' . ucwords($url[0]) . '.php')) {
             // if exists, set as controller
             $this->currentController = ucwords($url[0]);
             // Unset the zero index
             unset($url[0]);
-        } 
+        }
 
         // Require the controller
         require_once '../App/Controllers/' . $this->currentController . '.php';

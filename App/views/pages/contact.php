@@ -7,7 +7,7 @@
 </div>
 <div>
   <div class="testim_cl">
-    <img src="images/sidatt.jfif" alt="avatar">
+    <img src="<?php echo URLROOT;?>Public/images/sidatt.jfif" alt="avatar">
     <p>DHAYBY is a special jewelorries store to me. whenever I need to buy jeweleries I do not need to think twice, because DHAYBY is always my first choice</p>
   </div>
 </div>
@@ -45,15 +45,15 @@
 </div>
 <div class="reach">
   <div class="contact_mean1">
-    <img src="images/Address.png" width="35px" alt="">
+    <img src="<?php echo URLROOT;?>Public/images/Address.png" width="35px" alt="">
     <h6>Address</h6>
   </div>
   <div class="contact_mean2">
-    <img src="images/whatsapp.png" width="35px" alt="">
+    <img src="<?php echo URLROOT;?>Public/images/whatsapp.png" width="35px" alt="">
     <h6>Whatsapp</h6>
   </div>
   <div class="contact_mean3">
-    <img src="images/phone_call.png" width="35px" alt="">
+    <img src="<?php echo URLROOT;?>Public/images/phone_call.png" width="35px" alt="">
     <h6>Phone</h6>
   </div>
 </div>

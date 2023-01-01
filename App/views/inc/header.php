@@ -12,6 +12,7 @@
 
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f2acd83396.js" crossorigin="anonymous"></script>
     <!-- responsive style -->
     <link href="<?php echo URLROOT . '/Public/css/responsive.css'; ?>" rel="stylesheet" />
 </head>

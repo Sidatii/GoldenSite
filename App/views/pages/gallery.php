@@ -8,7 +8,7 @@
       <p>Dhayby is an international store that provides you with luxerious jewelorries. In our store you can find everything you are looking for. Welcome.</p>
     </div>
     <div class="gal_imag">
-      <img src="images/ring.png">
+      <img src="<?php echo URLROOT . 'Public/images/ring.png';?>" alt="">
     </div>
   </div>
 
@@ -16,7 +16,7 @@
   <center class="m-4 mx-auto">
 <div class="container">
 <?php  foreach($data['category'] as $item) : ?>
-    <a class="btn btn-light" href="<?php echo URLROOT . 'admins/products/' . $item->IDC; ?>"><?php echo $item->CatName?></a>
+    <a class="btn btn-light" href="<?php echo URLROOT . 'pages/gallery/' . $item->IDC; ?>"><?php echo $item->CatName?></a>
 <?php endforeach ;?>
 </div>
     <section class="product">
@@ -25,7 +25,7 @@
         <div class="product-card">
             <div class="product-image">
                 <span class="discount-tag">50% off</span>
-                <img src="<?php echo URLROOT .'Public'. $item->img; ?>" class="product-thumb" alt="">
+                <img src="<?php echo URLROOT .'Public/images/'. $item->img; ?>" class="product-thumb" alt="">
                 <button class="card-btn">add to wishlist</button>
             </div>
             <div class="product-info">

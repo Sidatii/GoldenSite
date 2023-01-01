@@ -9,6 +9,9 @@ class Admins extends Controller
     }
     public function login()
     {
+        if(isset($_SESSION['user_id'])){
+            redirect('admins/products/1');
+          }
         // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
@@ -72,10 +75,8 @@ class Admins extends Controller
     public function createAdminSession($admin)
     {
         $_SESSION['user_id'] = $admin->AdminID;
-        $_SESSION['admin_email'] = $admin->Email;
-
-        $this->view('Pages/gallery');
-
+        $_SESSION['admin_email'] = $admin->Email;        
+        redirect('admins/products/1');
     }
 
     public function logout()
@@ -90,7 +91,7 @@ class Admins extends Controller
         unset($_SESSION['user_id']);
         unset($_SESSION['admin_email']);
         session_destroy();
-        $this->view('admins/login', $data);
+        $this->view('pages/index', $data);
     }
 
     public function addProduct(){
@@ -101,23 +102,45 @@ class Admins extends Controller
         ];
 
         $this->view('admins/addProduct', $data);
+    }
 
+    public function addCategory(){
+
+        $data = [
+            
+        ];
+
+        $this->view('admins/addCategory', $data);
     }
 
     public function insertProduct(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+            $_POST = filter_input_array(INPUT_POST);
             $data = $_POST;
             $data['img'] = $_FILES["productImage"]["name"];
 
             if ($this->adminModel->addProduct($data)) {
                 move_uploaded_file($_FILES["productImage"]["tmp_name"], "./images/" . $data['img']);
+                flash('prd_added', 'Your product has been added successfully');
                 header("location:" . URLROOT . '/admins/products/1');
                 exit();
             }
-        }
-                
-                
+        }         
+    }
+
+    public function insertCategory(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $_POST = filter_input_array(INPUT_POST);
+            $data = $_POST;
+
+            if ($this->adminModel->addCategory($data['CatName'])) {
+                flash('cat_added', 'Your category has been added successfully');
+                header("location:" . URLROOT . '/admins/categories');
+                exit();
+            }
+        }         
     }
 
     public function products($idc)
@@ -149,32 +172,90 @@ class Admins extends Controller
 
     public function deleteProduct($id){
         if($this->adminModel->delete($id)){
+            flash('product_deleted', 'Your product has been deleted successfully.');
             $this->products(1);
         }
 
     }
 
-    public function updateProduct($id){
+    public function deleteCategory($id){
+        if($this->adminModel->deleteCategory($id)){
+            flash('cat_deleted', 'Your category has been deleted successfully.');
+            header("location:" . URLROOT . '/admins/categories');
+        }
+    }
+
+    public function updateProductPage($id){
         $categories = $this->adminModel->getCategories();
         $productInfos = $this->adminModel->showProductInfos($id);
-
-        
+ 
         $data = [
             'categories' => $categories,
-            'prdinfo' => $productInfos
+            'prdinfo' => $productInfos,
+            'id' => $id
         ];
         
         $this->view('admins/updateProduct', $data);
 
     }
 
-    // public function categories()
-    // {
-    //     $data = [
-    //         'title' => 'Dhayby | categories'
-    //     ];
-    //     $this->view('admins/categories', $data);
-    // }
+    public function updateCategoryPage($idc){
+        $categories = $this->adminModel->getCategory($idc);
+ 
+        $data = [
+            'categories' => $categories,
+            'idc' => $idc
+        ];
+        
+        $this->view('admins/updateCategory', $data);
+
+    }
+
+
+
+    public function updateProduct($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // here we process the form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST);
+            $data = $_POST;
+            $data['id'] = $id; 
+            $data['img'] = $_FILES["productImage"]["name"];  
+            
+
+            if($this->adminModel->update($data['productName'], $data['productDiscription'], $data['productQuantity'], $data['productPrice'], $data['IDC'], $data['img'], $data['id'])){
+                flash('prd_updated', 'Your product has been updated successfully.');
+                $this->products(1);
+            }
+        }
+    }
+
+    public function updateCategory($idc)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // here we process the form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST);
+            $data = $_POST;
+            $data['idc'] = $idc;
+            
+
+            if($this->adminModel->updateCategory($data['CatName'], $idc)){
+                flash('cat_updated', 'Your category has been updated successfully.');
+                redirect('admins/categories');
+            }
+        }
+    }
+
+    public function categories(){
+
+        $res = $this->adminModel->getCategories();
+        $data = [
+            'categories' => $res
+        ];
+        $this->view('admins/categories', $data);
+    }
 
 }
 ?>

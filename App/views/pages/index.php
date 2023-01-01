@@ -2,7 +2,7 @@
 <!-- // Here goes the echo of the page title -> Reminder : ------ -->
 <section class=" slider_section position-relative">
       <div class="design-box">
-        <img src="images/design-1.png" alt="">
+        <img src="<?php echo URLROOT;?>Public/images/design-1.png" alt="">
       </div>
       <div class="slider_number-container d-none d-md-block">
         <div class="number-box">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="<?php echo URLROOT;?>Public/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="<?php echo URLROOT;?>Public/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="<?php echo URLROOT;?>Public/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -136,7 +136,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/i-1.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/i-1.png" alt="">
           </div>
           <div class="name">
             <h5>
@@ -151,7 +151,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/i-2.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/i-2.png" alt="">
           </div>
           <div class="name">
             <h5>
@@ -166,7 +166,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/i-3.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/i-3.png" alt="">
           </div>
           <div class="name">
             <h5>
@@ -184,7 +184,7 @@
 
   <section class="about_section layout_padding2-top layout_padding-bottom">
     <div class="design-box">
-      <img src="images/design-2.png" alt="">
+      <img src="<?php echo URLROOT;?>Public/images/design-2.png" alt="">
     </div>
     <div class="container">
       <div class="row">
@@ -210,7 +210,7 @@
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/about-img.png" alt="">
           </div>
         </div>
       </div>
@@ -236,7 +236,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/p-1.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/p-1.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -254,7 +254,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/i-2.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/i-2.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -272,7 +272,7 @@
             </h6>
           </div>
           <div class="img-box">
-            <img src="images/i-3.png" alt="">
+            <img src="<?php echo URLROOT;?>Public/images/i-3.png" alt="">
           </div>
           <div class="detail-box">
             <h5>
@@ -298,7 +298,7 @@
 
   <section class="ring_section layout_padding">
     <div class="design-box">
-      <img src="images/design-1.png" alt="">
+      <img src="<?php echo URLROOT;?>Public/images/design-1.png" alt="">
     </div>
     <div class="container">
       <div class="ring_container layout_padding2">
@@ -318,7 +318,7 @@
           </div>
           <div class="col-md-7">
             <div class="img-box">
-              <img src="images/ring-img.jpg" alt="">
+              <img src="<?php echo URLROOT;?>Public/images/ring-img.jpg" alt="">
             </div>
           </div>
         </div>
@@ -346,7 +346,7 @@
             <div class="client_container">
               <div class="client-id">
                 <div class="img-box">
-                  <img src="images/client.png" alt="">
+                  <img src="<?php echo URLROOT;?>Public/images/client.png" alt="">
                 </div>
                 <div class="name">
                   <h5>
@@ -369,7 +369,7 @@
             <div class="client_container">
               <div class="client-id">
                 <div class="img-box">
-                  <img src="images/client.png" alt="">
+                  <img src="<?php echo URLROOT;?>Public/images/client.png" alt="">
                 </div>
                 <div class="name">
                   <h5>
@@ -392,7 +392,7 @@
             <div class="client_container">
               <div class="client-id">
                 <div class="img-box">
-                  <img src="images/client.png" alt="">
+                  <img src="<?php echo URLROOT;?>Public/images/client.png" alt="">
                 </div>
                 <div class="name">
                   <h5>

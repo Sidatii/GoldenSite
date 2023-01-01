@@ -63,6 +63,13 @@ class Admin{
         return $results;
     }
 
+    public function getCategory($idc) {
+        $this->db->query('SELECT * FROM category WHERE `IDC`=:idc');
+        $this->db->bind(':idc', $idc);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
     public function addProduct(array $product){
         extract($product);
         $this->db->query('INSERT INTO `produits` (`ProductName`, `Discription`, `Quantity`, `Price`, `IDC`, `img`) VALUES (:n, :disc, :q, :price, :idc, :img)');
@@ -78,13 +85,32 @@ class Admin{
         return true;
     }
 
+    public function addCategory($category){
+        $this->db->query('INSERT INTO `category` (`CatName`) VALUES (:n)');
+
+        $this->db->bind(':n', $category);
+
+        $this->db->execute();
+        return true;
+    }
+
     public function delete($id){
         $this->db->query("DELETE FROM produits WHERE `produits`.`ID` = $id");
 
         if($this->db->execute()){
             return true;
         }else{
-            flash('product_deleted', 'Your product has been deleted');
+            flash('product_not_deleted', 'Your product has not been deleted');
+        }
+    }
+
+    public function deleteCategory($idc){
+        $this->db->query("DELETE FROM category WHERE `IDC` = $idc");
+
+        if($this->db->execute()){
+            return true;
+        }else{
+            flash('cat_not_deleted', 'Your category has not been deleted');
         }
     }
 
@@ -96,20 +122,46 @@ class Admin{
     }
 
     public function update($name, $disc, $qty, $price, $idc, $img, $id){
-        $this->db->query('UPDATE `produits` SET `ProductName`= :name ,`Discription`= :disc,`Quantity`=:qty,`Price`=:price,`IDC`=:idc,`img`=:img WHERE `ID`=:id');
 
-        $this->db->bind(':name', $name);
-        $this->db->bind(':disc', $disc);
-        $this->db->bind(':qty', $qty);
-        $this->db->bind(':price', $price);
-        $this->db->bind(':idc', $idc);
-        $this->db->bind(':img', $img);
-        $this->db->bind(':id', $id);
+        if (empty($img)) {
+        
+            $this->db->query('UPDATE `produits` SET `ProductName`= :name ,`Discription`= :disc,`Quantity`=:qty,`Price`=:price,`IDC`=:idc WHERE `ID`=:id');
+            
+            $this->db->bind(':name', $name);
+            $this->db->bind(':disc', $disc);
+            $this->db->bind(':qty', $qty);
+            $this->db->bind(':price', $price);
+            $this->db->bind(':idc', $idc);
+            $this->db->bind(':id', $id);
+            
+            $this->db->execute();
+            return true;
+            
+        }else{
+            $this->db->query('UPDATE `produits` SET `ProductName`= :name ,`Discription`= :disc,`Quantity`=:qty,`Price`=:price,`IDC`=:idc,`img`=:img WHERE `ID`=:id');
+    
+            $this->db->bind(':name', $name);
+            $this->db->bind(':disc', $disc);
+            $this->db->bind(':qty', $qty);
+            $this->db->bind(':price', $price);
+            $this->db->bind(':idc', $idc);
+            $this->db->bind(':img', $img);
+            $this->db->bind(':id', $id);
+    
+            $this->db->execute();
+            return true;
+        }
 
-        $this->db->execute();
-        return true;
+    }
 
-
+    public function updateCategory($name, $idc){
+            $this->db->query('UPDATE `category` SET `CatName`= :name WHERE `IDC`=:idc');
+            
+            $this->db->bind(':name', $name);
+            $this->db->bind(':idc', $idc);
+            
+            $this->db->execute();
+            return true;
     }
 
 }
